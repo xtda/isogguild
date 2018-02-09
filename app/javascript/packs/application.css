@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Concert+One");
+
+html,
+body {
+  font-family: "Open Sans", serif;
+}
+
+.hero.is-info {
+  /* stylelint-disable */
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("./argusbackgroundpicture.jpg") no-repeat center center fixed;
+  /* stylelint-enable */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.hero .subtitle {
+  padding: 3rem 0;
+  line-height: 1.5;
+}
+
+.nav-font {
+  font-family: "Concert One", cursive;
+}

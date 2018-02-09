@@ -2,7 +2,11 @@
   "name": "isogguild",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.2.1"
+    "@rails/webpacker": "^3.2.1",
+    "babel-eslint": "^8.2.1",
+    "babel-polyfill": "^6.26.0",
+    "bulma": "^0.6.2",
+    "turbolinks": "^5.1.1"
   },
   "devDependencies": {
     "eslint": "^4.17.0",
