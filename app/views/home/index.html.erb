@@ -1,5 +1,5 @@
-    <div class="hero-body">
-      <div class="container has-text-centered">
+    <div class="hero-body ">
+      <div class="container has-text-centered ">
         <div class="column is-6 is-offset-3">
           <h3 class="title is-3">
             Icky Sticky Ooey Gooey
@@ -8,18 +8,15 @@
             Frostmourne | OCE
           </h5>
           <h5 class="subtitle is-5">
-           PUT RECRUITMENT SHIT HERE
+           
           </h5>
           <div class="box">
-            <div class="field is-grouped">
-              <p class="control">
-                <input class="input" type="text" placeholder="Charater's name">
-              </p>
-              <p class="control select">
-                <select placeholder="Realm"> </select>
+            <div class="field is-grouped" data-controller="home">
+              <p class="control is-expanded">
+                <input class="input" type="text" placeholder="Charater's name" data-target="home.name">
               </p>
               <p class="control">
-                 <%= link_to 'Apply now', '#', class: 'button is-info'%>
+                <button class="button is-info" data-action="click->home#submit"> Apply </button>
               </p>
             </div>
           </div>

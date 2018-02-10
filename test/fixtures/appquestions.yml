@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  text: MyString
+  field_type: MyString
+  field_options: MyString
+  enabled: false
+  position: 1
+
+two:
+  name: MyString
+  text: MyString
+  field_type: MyString
+  field_options: MyString
+  enabled: false
+  position: 1

@@ -9,11 +9,19 @@
 
 import "babel-polyfill";
 import Turbolinks from "turbolinks";
-import "bulma/bulma.sass";
 
+import { Application } from "stimulus";
+import { definitionsFromContext } from "stimulus/webpack-helpers";
+
+import "bulma/bulma.sass";
 import "./application.css";
 
+import "./background.png";
 import "./headerlogo.png";
+
+const application = Application.start();
+const context = require.context("../controllers", true, /\.js$/);
+application.load(definitionsFromContext(context));
 
 Turbolinks.start();
 

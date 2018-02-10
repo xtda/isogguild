@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_name: MyString
+  player_realm: MyString
+  player_bnettag: MyString
+  player_class: MyString
+  player_spec: MyString
+  player_links: MyString
+  viewkey: MyString
+
+two:
+  player_name: MyString
+  player_realm: MyString
+  player_bnettag: MyString
+  player_class: MyString
+  player_spec: MyString
+  player_links: MyString
+  viewkey: MyString

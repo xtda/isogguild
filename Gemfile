@@ -14,6 +14,10 @@ gem 'webpacker'
 
 gem 'clearance'
 
+gem 'rest-client'
+
+gem 'recaptcha', require: 'recaptcha/rails'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'

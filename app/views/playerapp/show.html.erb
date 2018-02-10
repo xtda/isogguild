@@ -1,0 +1,45 @@
+  <div class="hero-body" data-controller="playerapps">
+        <div class="container">
+          <div class="column is-10 is-offset-1 display-hero">
+            <h1 class="is-size-1 has-text-weight-bold"><%= @application.player_name %> - <%= @application.player_realm  %></h1>
+            <h5 class="is-size-6 has-text-weight-bold">Battle.net: <%= @application.player_bnettag %> </h5>
+            <h5 class="is-size-6 has-text-weight-bold">Class: <%= @application.player_class %> </h5> 
+            <h5 class="is-size-6 has-text-weight-bold">Spec: <%= @application.player_spec %> </h5> 
+            <br/>
+            <h5 class="is-size-6 has-text-weight-bold">Logs: <%= link_to @application.link_warcraftlogs, @application.link_warcraftlogs %> </h5>
+            <h5 class="is-size-6 has-text-weight-bold">WoW Progress: <%= link_to @application.link_wowprog, @application.link_wowprog %></h5> 
+            <h5 class="is-size-6 has-text-weight-bold">Raider.io: <%= link_to @application.link_raiderio, @application.link_raiderio %> </h5> 
+            <hr/>
+            <% @application.playerappanswers.each do |question| %>
+              <br/>          
+              <h6 class="is-size-6 has-text-weight-bold"><%= question.question %>:</h6>
+              <h7 claas="is-size-5 "><%= question.answer %> </h7>
+              <br/>
+            <% end %>
+          </div>    
+          </div>
+  </div>
+
+<% if false %>
+<div class="hero-body">
+      <div class="container">
+        <div class="column is-12">
+        <div class="box">
+        <h1 class="is-size-1"> Application Details: </h1>
+        <br/>
+        <h6 class="is-size-6 has-text-weight-bold">Name: <%= @application.player_name %> </h6> 
+        <h6 class="is-size-6 has-text-weight-bold">Class: <%= @application.player_class %> </h6> 
+        <h6 class="is-size-6 has-text-weight-bold">Spec: <%= @application.player_spec %> </h6> 
+        </br>
+        </br>
+        <% @application.playerappanswers.each do |question| %>
+        
+              <h6 class="is-size-6 has-text-weight-bold"><%= question.question %>:</h6>
+              <h7 claas="is-size-5 "><%= question.answer %> </h7>
+              <br/>
+        <% end %>
+ </div>
+ </div>
+ </div>
+ </div>
+<% end %>

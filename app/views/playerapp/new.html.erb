@@ -1,0 +1,67 @@
+<div class="hero-body" data-controller="playerapps">
+      <div class="container has-text-centered">
+        <div class="column is-10 is-offset-1 apply-hero">
+        <%= form_with url: '#', id: 'application_form' do |form| %>
+            <div class="field">
+              <div class="control">
+                <label class="label app-label">What is your character's name?</label>
+                <input class="input" type="text" name="player_name" id="player_name" required <% if !@player_name.nil? %> value=<%= @player_name %>  <% end %>/>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <label class="label app-label">Realm</label>
+                <div class="select">
+                  <select name="player_realm" id="player_realm"></select>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <label class="label app-label">What is your Battle.net tag?</label>
+                <input class="input" type="text" name="player_bnettag" id="player_bnettag"/>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <label class="label app-label">What class are you?</label>
+                <div class="select">
+                  <select name="player_class" id="player_class" data-action="change->playerapps#updatespecs"></select>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <label class="label app-label">What is your main specialisation?</label>
+                <div class="select">
+                  <select name="player_spec" id="player_spec"></select>
+                </div>
+              </div>
+            </div>
+            <% @questions.each do |question| %>
+            <div class="field">
+              <div class="control">
+                <label class="label app-label"><%= question.text %> </label>
+                <% if question.field_type === 'select' %>
+                  <div class="select">
+                    <select name="<%= question.text %>" id="<%= question.text %>">></select>
+                  </div>
+                <% elsif question.field_type === 'textarea' %>
+                  <textarea class="textarea" name="<%= question.text %>" <%= question.field_options %>></textarea>
+                 <% elsif question.field_type === 'number' %>
+                  <input class="input" type=<%= question.field_type %> name="<%= question.text %>" id="<%= question.text %>" <%= question.field_options %> />
+                <% elsif%>
+                  <input class="input" type=<%= question.field_type %> name="<%= question.text %>" id="<%= question.text %>" <%= question.field_options %> />         
+                <% end %>
+                </div>
+              </div>
+            <% end %>
+            <br/>
+            <%= recaptcha_tags(ajax: true)%>
+            <div class="control">
+              <button class="button is-link" data-action="click->playerapps#submit">Submit</button>
+          </div>
+         <% end %>
+</div>
+</div>
+</div>

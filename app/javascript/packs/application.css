@@ -7,8 +7,8 @@ body {
 
 .hero.is-info {
   /* stylelint-disable */
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("./argusbackgroundpicture.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1)),
+    url("./darnbackground.jpg") no-repeat center center fixed;
   /* stylelint-enable */
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -21,6 +21,18 @@ body {
   line-height: 1.5;
 }
 
+.apply-hero {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.display-hero {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .nav-font {
   font-family: "Concert One", cursive;
+}
+
+.app-label {
+  color: white;
 }
