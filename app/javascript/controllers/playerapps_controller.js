@@ -319,7 +319,7 @@ function submitApplicationHandler(appForm, event) {
     .then(response => response.json())
     .then(data => {
       if (data.status === "success") {
-        window.Turbolinks.visit("/");
+        window.Turbolinks.visit("/applied");
       }
     });
 }

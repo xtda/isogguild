@@ -7,7 +7,7 @@ class Playerapp < ApplicationRecord
   accepts_nested_attributes_for :playerappanswers
 
   before_create :generate_viewkey
-  after_save :send_to_discord_job
+  after_commit :send_to_discord_job
 
   validates :player_name, presence: true
   validates :player_class, inclusion: { in: %w[Druid Hunter Mage Paladin Priest Rogue Shaman Warlock Warrior DeathKnight Monk DemonHunter] }
@@ -91,7 +91,7 @@ class Playerapp < ApplicationRecord
   private
 
   def send_to_discord_job
-    SendToDiscordJob.perform_later self
+    SendToDiscordWorker.perform_async(self.id)
   end
 
   def generate_viewkey
