@@ -75,8 +75,7 @@ module Wowarmory
     realms['realms'].each do |k, v|
       realm = {
         name: k['name'],
-        slug: k['slug'],
-        wowprog: k['name'].tr('\'', '-').tr(' ','-').downcase
+        slug: k['slug']
       }
       realm_list.push(realm)
     end

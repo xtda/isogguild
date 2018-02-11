@@ -1,0 +1,14 @@
+<div class="hero-body">
+      <div class="container">
+        <div class="column is-12">
+        <div class="box">
+          <%= form_for(@frontpage) do |f| %>
+            <input id="frontpage" type="hidden" name="contents" value="<%= @frontpage %>">
+            <trix-editor input="frontpage" class="trix-content"></trix-editor>
+            </br>
+             <%= f.submit "Update", class: "button is-primary" %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+</div>

@@ -1,8 +1,8 @@
     <div class="hero-head">
-      <nav class="navbar nav-font is-transparent">
+      <nav class="navbar nav-font is-transparent" role="navigation" aria-label="dropdown navigation">
         <div class="container">
           <div class="navbar-brand">
-             <a class="navbar-item" href="./">
+              <a class="navbar-item" href="/">
               <img src="<%= asset_pack_path 'packs/headerlogo.png' %>" />
             </a>
             <span class="navbar-burger burger" data-target="navbarMenu">
@@ -23,6 +23,16 @@
               <a class="navbar-item" href="https://raider.io/guilds/us/frostmourne/Icky%20Sticky%20Ooey%20Gooey" target="_blank" rel="noopener noreferrer">
                 raider.io
               </a>
+                  <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link"></a>
+                      <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                           <%= link_to 'Frontpage', admin_frontpage_edit_path, class: 'navbar-item' %>
+                        </a>
+                        <hr class="navbar-divider">
+                          <%= link_to 'Logout', sign_out_path, class: 'navbar-item', method: 'delete' %>
+                      </div>
+                  </div>
             </div>
           </div>
         </div>

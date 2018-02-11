@@ -11,8 +11,11 @@
   </head>
 
   <body >
-    <section class="hero is-info is-fullheight">
+    <section class="hero is-dark is-fullheight">
       <%= render 'layouts/navbar' %>
+      <% if !flash.empty? %>
+        <%= render 'layouts/flash' %>
+      <% end %>
       <%= yield %>
     </section>
   </body>

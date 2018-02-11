@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Concert+One");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 
 html,
 body {
-  font-family: "Open Sans", serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
-.hero.is-info {
+.hero.is-dark {
   /* stylelint-disable */
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1)),
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url("./darnbackground.jpg") no-repeat center center fixed;
   /* stylelint-enable */
   -webkit-background-size: cover;
@@ -26,11 +28,31 @@ body {
 }
 
 .display-hero {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.banner-hero {
+  background-color: rgb(86, 5, 88, 0.5);
+  border-color: black;
+  border-width: 0.1px;
+  border-style: solid;
+}
+
+.recruitment-panel {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 25px;
+}
+
+.hero.is-dark .title {
+  color: rgba(228, 212, 212, 0.904);
 }
 
 .nav-font {
   font-family: "Concert One", cursive;
+}
+
+.navbar-dropdown {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .app-label {

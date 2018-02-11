@@ -4,6 +4,7 @@ class PlayerappController < ApplicationController
   def show
     return redirect_to root_url unless params.key?(:viewkey)
     @application = Playerapp.where(id: params[:id], viewkey: params[:viewkey]).includes(:playerappanswers).first
+    redirect_to root_url unless @application
   end
 
   def new

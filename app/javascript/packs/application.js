@@ -8,6 +8,8 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import "babel-polyfill";
+import Rails from "rails-ujs";
+
 import Turbolinks from "turbolinks";
 
 import { Application } from "stimulus";
@@ -19,10 +21,13 @@ import "./application.css";
 import "./background.png";
 import "./headerlogo.png";
 
+import "../admin/admin";
+
 const application = Application.start();
 const context = require.context("../controllers", true, /\.js$/);
 application.load(definitionsFromContext(context));
 
+Rails.start();
 Turbolinks.start();
 
 document.addEventListener("turbolinks:load", () => {
