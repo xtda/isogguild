@@ -1,5 +1,12 @@
 class PlayerappController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
+  before_action :require_login, only: [:index]
+
+  def index
+    @applications = Playerapp.all.select(:id, :viewkey, :player_name,
+                                         :player_class, :player_spec,
+                                         :player_links, :player_bnettag)
+  end
 
   def show
     return redirect_to root_url unless params.key?(:viewkey)

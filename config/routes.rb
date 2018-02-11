@@ -8,11 +8,14 @@ Rails.application.routes.draw do
 
   get '/app/:id', to: 'playerapp#show', as: 'playerapp'
   get '/applied', to: 'applied#index'
+  get '/admin/apps', to: 'playerapp#index',as: 'apps'
 
-  
   get '/user/edit', to: 'user#edit', as: 'user_edit'
   patch '/user', to: 'user#update', as: 'user'
 
+  get '/application/:id', to: 'remorseapp#show', as: 'playerapplication'
+  get '/admin/applications', to: 'remorseapp#index', as: 'applications'
+  
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -35,10 +38,13 @@ Rails.application.routes.draw do
     get 'test', to: 'admintest#index'
     get 'frontpage', to: 'frontpage#edit', as: 'frontpage'
     post 'frontpage', to: 'frontpage#update', as: 'frontpage_edit'
+    get 'recruitment', to: 'recruitment#index', as: 'recruitment'
+    post 'recruitment', to: 'recruitment#update', as: 'recruitment_update'
   end
 
   scope module: 'api' do
     namespace :v1 do
+      get '/recruiting', to: 'recruiting#index'
       namespace :wow do
         get '/realms', to: 'realms#index'
       end

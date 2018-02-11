@@ -1,0 +1,13 @@
+<div class="hero-body" data-controller="playerapps">
+  <div class="container ">
+    <div class="column is-10 is-offset-1 display-hero">
+            <% @applications.each do |application| %>
+            <%= link_to application.player_name, playerapplication_path(application, viewkey: application.viewkey)    %>
+             </br><br/>
+            Class: <%= application.player_class %> </br>
+            Spec: <%= application.player_mainspec %>
+            <hr/>
+            <% end %>
+    </div>
+  </div>
+</div>

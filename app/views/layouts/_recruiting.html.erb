@@ -1,0 +1,20 @@
+  <% last_class = '' %>
+  <h5 class="is-size-5">Currently Recruiting: </h5>
+  <div class="class_icons">
+    <% @recruiting.each do |cclass ,v| %>
+      <% v.each do |spec, vv| %>
+        <% if vv %>
+          <% if last_class != cclass %>
+            <br/>
+            <%= cclass.capitalize %>
+            <br/>
+          <% end %>
+          <img src="<%= asset_pack_path "packs/class_icons/#{cclass}/#{spec}.jpg" %>" />
+                  <% if last_class != cclass %>
+         <% last_class = cclass %>
+        <% end %>
+        <% end %>
+
+      <% end %>
+    <% end %>
+  </div>

@@ -23,15 +23,22 @@
               <a class="navbar-item" href="https://raider.io/guilds/us/frostmourne/Icky%20Sticky%20Ooey%20Gooey" target="_blank" rel="noopener noreferrer">
                 raider.io
               </a>
+              <% if signed_in? %>
                   <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link"></a>
                       <div class="navbar-dropdown">
-                       <%= link_to 'Edit Frontpage', admin_frontpage_edit_path, class: 'navbar-item' %>
+                      <%= link_to 'All applications', apps_path, class: 'navbar-item' %>
+                      <%= link_to 'Update recruiting', admin_recruitment_path, class: 'navbar-item' %>
+                      <%= link_to 'Edit Frontpage', admin_frontpage_edit_path, class: 'navbar-item' %>
+                      <hr class="navbar-divider">
+                        <%= link_to 'Remorse Applications', applications_path, class: 'navbar-item' %>
+                       <hr class="navbar-divider">
                        <%= link_to 'Update password', user_edit_path, class: 'navbar-item' %>
                         <hr class="navbar-divider">
                        <%= link_to 'Logout', sign_out_path, class: 'navbar-item', method: 'delete' %>
                       </div>
                   </div>
+                  <% end %>
             </div>
           </div>
         </div>

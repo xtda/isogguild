@@ -1,0 +1,20 @@
+<div class="hero-body">
+  <div class="container">
+    <div class="column is-10 is-offset-1 apply-hero">
+     <% @applications.each do |application| %>
+    <%= link_to application.player_name, playerapp_path(application, viewkey: application.viewkey),class: "is-size-4 is-weight-bold" %> 
+    </br><br/>
+    <h5 class="is-size-6 has-text-weight-bold">Battle.net: <%= application.player_bnettag %> </h5>
+    <h5 class="is-size-6 has-text-weight-bold">Class: <%=application.player_class %> </h5> 
+    <h5 class="is-size-6 has-text-weight-bold">Spec: <%= application.player_spec %> </h5> </br>
+    <h5 class="is-size-6 has-text-weight-bold">Logs: <%= link_to application.link_warcraftlogs, application.link_warcraftlogs %> </h5>
+    <h5 class="is-size-6 has-text-weight-bold">WoW Progress: <%= link_to application.link_wowprog, application.link_wowprog %></h5> 
+    <h5 class="is-size-6 has-text-weight-bold">Raider.io: <%= link_to application.link_raiderio, application.link_raiderio %> </h5> 
+        <div class="has-text-right">
+    <%= link_to "Delete", '#', method: :delete, data: { confirm: "You sure?" } %>
+    </div>
+     <hr/>
+     <% end %>
+    </div>
+  </div>
+</div>

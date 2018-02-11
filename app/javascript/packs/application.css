@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Concert+One");
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 
 html,
@@ -11,7 +10,7 @@ body {
   /* stylelint-disable */
   background: #f0f2f4;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("./argusbackgroundpicture.jpg") no-repeat center center fixed;
+    url("./darnbackground.jpg") no-repeat center center fixed;
   /* stylelint-enable */
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -30,12 +29,13 @@ body {
 .gooey-hero {
   /* stylelint-disable */
   background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-    url("./background.png") no-repeat center center fixed;
+    url("./background.png") no-repeat center top fixed;
   /* stylelint-enable */
 }
 
 .display-hero {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 25px;
 }
 
 .banner-hero {
@@ -60,4 +60,18 @@ body {
 
 .app-label {
   color: white;
+}
+
+.is-notice {
+  color: black;
+}
+
+.class_icons img {
+  width: 28px;
+  height: 28px;
+  display: inline;
+}
+
+.class_icons_hidden {
+  display: inline;
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180210130059) do
+ActiveRecord::Schema.define(version: 20180211141145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,12 +31,35 @@ ActiveRecord::Schema.define(version: 20180210130059) do
   create_table "playerappanswers", force: :cascade do |t|
     t.string "name", null: false
     t.string "question", null: false
-    t.string "answer", null: false
+    t.text "answer", null: false
     t.string "position", default: "0", null: false
     t.bigint "playerapp_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["playerapp_id"], name: "index_playerappanswers_on_playerapp_id"
+  end
+
+  create_table "playerapplications", force: :cascade do |t|
+    t.string "player_battlenettag"
+    t.string "player_name"
+    t.string "player_realm"
+    t.string "player_class"
+    t.string "player_mainspec"
+    t.integer "player_mainspec_awt"
+    t.string "player_offspec"
+    t.integer "player_offspec_awt"
+    t.text "player_offspec_confidence"
+    t.text "player_alts"
+    t.text "player_previousguilds"
+    t.string "link_wowprogress"
+    t.string "link_warcraftlogs"
+    t.text "question_theorycraft"
+    t.text "question_whyyou"
+    t.text "question_whyremorse"
+    t.text "question_anythingelse"
+    t.string "viewkey"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "playerapps", force: :cascade do |t|
@@ -45,7 +68,7 @@ ActiveRecord::Schema.define(version: 20180210130059) do
     t.string "player_bnettag"
     t.string "player_class", null: false
     t.string "player_spec", null: false
-    t.string "player_links"
+    t.text "player_links"
     t.string "viewkey"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

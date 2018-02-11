@@ -1,0 +1,58 @@
+<div class="hero-body" data-controller="playerapps">
+  <div class="container ">
+    <div class="column is-10 is-offset-1 display-hero">
+    <h2 class="is-size-2"><p>Archived Remorse Application:</p></h2>
+
+    <p><strong>Battle.net:</strong> <%= @application.player_battlenettag %>
+    <br>
+
+    <strong>Warcraft Logs:</strong>
+    <% @application.links_warcraftlogs.each do |link| %>
+      <br/>
+      <%= link_to link, link,target: "_blank",rel: "noopener noreferrer"%>
+    <% end %>
+    <br/>
+    <strong>WoW Progress:</strong>
+    <% @application.links_wowprogress.each do |link| %> <br/>
+    <%= link_to link, link,target: "_blank",rel: "noopener noreferrer" %>
+    <% end %>
+    </p>
+    <p><br/>
+    <strong>Name:</strong> <%= @application.player_name %>
+    <br>
+    <strong>Class:</strong> <%= @application.player_class %>
+    <br/><br/>
+    </p>
+    <p>
+    <strong>Main spec:</strong> <%= @application.player_mainspec %>
+    <br>  
+    <strong>Main spec Artifact Level:</strong> <%= @application.player_mainspec_awt %>
+    </p><br/>
+    <p>
+    <strong>Do you have an offspec? What is its gear like? are you confident in playing your offspec?:</strong>
+    </br>
+    <%= @application.player_offspec_confidence%>
+    </br></br>
+    <strong>Do you have any alts?:</strong></br>
+    <%= @application.player_alts %>
+    </p><p>
+    <strong>How do you stay up to date on your class? what sources do you use for theorycrafting?:</strong></br>
+    <%= @application.question_theorycraft %>
+    </p><br>
+    <p>
+    <strong>Why you? What makes you unique What will you bring to remorse?:</strong><br>
+    <%= @application.question_whyyou %>
+    </p>
+    <br>
+    <p>
+    <strong>Why Remorse? What makes you want to join us?:</strong><br>
+    <%= @application.question_whyremorse %>
+    </p>
+    <br>
+    <p>
+    <strong>Anything else?:</strong><br>
+    <%= @application.question_anythingelse %>
+    </p><br><br>
+      </div>
+  </div>
+</div>

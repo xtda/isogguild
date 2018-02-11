@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_battlenettag: MyString
+  player_name: MyString
+  player_realm: MyString
+  player_class: MyString
+  player_mainspec: MyString
+  player_mainspec_awt: 1
+  player_offspec: MyString
+  player_offspec_awt: 1
+  player_offspec_confidence: MyText
+  player_alts: MyText
+  player_previousguilds: MyText
+  link_wowprogress: MyString
+  link_warcraftlogs: MyString
+  question_theorycraft: MyText
+  question_whyyou: MyText
+  question_whyremorse: MyText
+  question_anythingelse: MyText
+  viewkey: MyString
+
+two:
+  player_battlenettag: MyString
+  player_name: MyString
+  player_realm: MyString
+  player_class: MyString
+  player_mainspec: MyString
+  player_mainspec_awt: 1
+  player_offspec: MyString
+  player_offspec_awt: 1
+  player_offspec_confidence: MyText
+  player_alts: MyText
+  player_previousguilds: MyText
+  link_wowprogress: MyString
+  link_warcraftlogs: MyString
+  question_theorycraft: MyText
+  question_whyyou: MyText
+  question_whyremorse: MyText
+  question_anythingelse: MyText
+  viewkey: MyString

@@ -328,8 +328,7 @@ export default class extends Controller {
   static get targets() {
     return ["playerclass", "output"];
   }
-  constructor() {
-    super();
+  initialize() {
     this.realmApi = "/v1/wow/realms";
     this.realmSelect = document.getElementById("player_realm");
     this.classSelectOptions = document.getElementById("player_class").options;
@@ -337,8 +336,6 @@ export default class extends Controller {
     this.specSelect = document.getElementById("player_spec");
     this.appForm = document.getElementById("application_form");
     this.gooeyDiv = document.getElementById("gooey-bg-display");
-  }
-  initialize() {
     this.realmSelect.length = 0;
 
     fetch(this.realmApi)

@@ -1,21 +1,11 @@
-<% if false %>
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <div class="column is-6 is-offset-3">
-          <h2 class="title is-2">
-            Icky Sticky Ooey Gooey
-          </h2>
-          <h5 class="subtitle is-5">Frostmourne | OCE</h5>
-        </div>
-      </div>
-    </div>
-<% end %>
-
     <div class="hero-body">
       <div class="container">
-        <div class="columns">
-          <div class="column display-hero">
+        <div class="columns display-hero">
+          <div class="column is-10 ">
             <%= sanitize @frontpage %>
+          </div>
+          <div class="column has-text-right">
+           <%= render 'layouts/recruiting' %>
           </div>
        </div>
       </div>
