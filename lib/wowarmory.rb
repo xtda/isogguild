@@ -7,9 +7,9 @@ module Wowarmory
 
   def armory(name, realm, region = 'us')
     uri = URI.encode("https://#{region}.api.battle.net/wow/character/#{realm}/#{name}?fields=items,progression,guild,achievements,talents&apikey=#{WOW_API_KEY}")
-    request = RestClient.get(uri)
+    request = RestClient.get(uri){|response, request, result| response }
     character = JSON.parse(request)
-    return if character['status'] == 'nok'
+    return false if character['status'] == 'nok'
     character
   end
 

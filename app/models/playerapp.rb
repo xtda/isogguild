@@ -63,9 +63,10 @@ class Playerapp < ApplicationRecord
   def player_rating
     total_score = 0
     armory = armory(player_name, player_realm)
+    return 0 if armory == false
     log_type = healer?(armory) ? 'hps' : 'dps'
     logs = playerlogs(player_name, player_realm, log_type)
-    total_score += mythic_parses(logs)
+    logs == true ? total_score += mythic_parses(logs) : total_score += 0
     ilvl = armory['items']['averageItemLevelEquipped'].to_i
     weapon_level = weapon_info(armory['items'], player_spec_is(armory['talents']))
     progression = raid_progression(armory['progression'])

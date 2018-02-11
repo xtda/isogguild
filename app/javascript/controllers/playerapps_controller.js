@@ -233,26 +233,43 @@ function updateSpecList(playerClass, specList) {
   );
 }
 
-function getWoWProgLink(realm) {
-  const val = realm.replace(/[']|[ ]/g, "-");
-  return val;
+function getWoWProgLink(name, realm) {
+  const wowProgRealm = realm.selectedOptions[0].innerText;
+  const val = wowProgRealm.replace(/[']|[ ]/g, "-");
+  const wowProgLink = `https://www.wowprogress.com/character/us/${val}/${name}`;
+  return wowProgLink.toLowerCase();
 }
 
-function getLinks(playerName, playerRealm) {
-  let playerlinks = "";
-  const realmSelect = document.getElementById("player_realm");
-  const realm = realmSelect.selectedOptions[0].innerText;
-  const wowProgLink = `https://www.wowprogress.com/character/us/${getWoWProgLink(
+function getRaiderIOLink(name, realm) {
+  const raiderIoLink = `https://raider.io/characters/us/${realm.value}/${name}`;
+  return raiderIoLink;
+}
+
+function getWoWArmoryLink(name, realm) {
+  const wowArmoryLink = `https://worldofwarcraft.com/en-us/character/${
+    realm.value
+  }/${name}`;
+  return wowArmoryLink;
+}
+
+function getWarcraftLogsLink(name, realm) {
+  const warcraftLogsLink = `https://www.warcraftlogs.com/character/us/${
+    realm.value
+  }/${name}`;
+  return warcraftLogsLink;
+}
+
+function updatePlayerlinks(name, realm) {
+  const warcraftlogs = document.getElementById("player_warcraftlogs").value;
+  const wowprog = document.getElementById("player_wowprogress").value;
+  const playerlinks = `${wowprog} / ${getRaiderIOLink(
+    name,
     realm
-  )}/${playerName}`;
-  const raiderIoLink = `https://raider.io/characters/us/${playerRealm}/${playerName}`;
-  const wowArmoryLink = `https://worldofwarcraft.com/en-us/character/${playerRealm}/${playerName}`;
-  const warcraftLogsLink = `https://www.warcraftlogs.com/character/us/${playerRealm}/${playerName}`;
-  playerlinks += `${wowProgLink.toLowerCase()} / ${raiderIoLink} / ${warcraftLogsLink} / ${wowArmoryLink}`;
+  )} / ${warcraftlogs} / ${getWoWArmoryLink(name, realm)} `;
   return playerlinks;
 }
 
-function submitApplicationHandler(appForm, event) {
+function submitApplicationHandler(appForm, event, playerLinks) {
   event.preventDefault();
   const playerapp = [];
   const defaultanswers = [];
@@ -304,7 +321,7 @@ function submitApplicationHandler(appForm, event) {
         player_bnettag: defaultanswers[2],
         player_class: defaultanswers[3],
         player_spec: defaultanswers[4],
-        player_links: getLinks(defaultanswers[0], defaultanswers[1]),
+        player_links: playerLinks,
         playerappanswers_attributes: playerapp
       }
     };
@@ -326,7 +343,7 @@ function submitApplicationHandler(appForm, event) {
 
 export default class extends Controller {
   static get targets() {
-    return ["playerclass", "output"];
+    return ["realm", "name", "wowProgLink", "wowLogsLink"];
   }
   initialize() {
     this.realmApi = "/v1/wow/realms";
@@ -351,9 +368,24 @@ export default class extends Controller {
   }
   updatespecs() {
     this.specSelect.length = 0;
-    updateSpecList(this.classSelect.value, this.specSelect);
+    updateSpecList(this.classSelect.value, this.specSelect, this.playerLinks);
   }
+
   submit(event) {
-    submitApplicationHandler(this.appForm, event);
+    this.playerLinks = updatePlayerlinks(
+      this.nameTarget.value,
+      this.realmSelect
+    );
+    submitApplicationHandler(this.appForm, event, this.playerLinks);
+  }
+  updateLinks() {
+    this.wowProgLinkTarget.value = getWoWProgLink(
+      this.nameTarget.value,
+      this.realmSelect
+    );
+    this.wowLogsLinkTarget.value = getWarcraftLogsLink(
+      this.nameTarget.value,
+      this.realmSelect
+    );
   }
 }

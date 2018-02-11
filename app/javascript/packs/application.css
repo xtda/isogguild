@@ -75,3 +75,7 @@ body {
 .class_icons_hidden {
   display: inline;
 }
+
+input[type="text"]:disabled {
+  background: #a3a2a2;
+}

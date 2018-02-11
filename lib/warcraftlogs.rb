@@ -7,7 +7,8 @@ module Warcraftlogs
 
   def playerlogs(name, realm, role = 'dps', region = 'us')
     uri = URI.encode("#{WCL_API_URL}#{WCL_PARSES_API_END_POINT}#{name}/#{realm}/#{region}?metric=#{role}&api_key=#{WCL_API_KEY}")
-    request = RestClient.get(uri)
+    request = RestClient.get(uri) { |response, _request, _result| response }
+    return false unless request.code == 200
     JSON.parse(request)
   end
 

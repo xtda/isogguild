@@ -95,3 +95,9 @@ User.create(
   password: 'changeme',
   access_level: 1
 )
+
+r = JSON.parse('{"mage":{"fire":true,"frost":true,"arcane":true},"monk":{"brewmaster":true,"mistweaver":true,"windwalker":true},"druid":{"feral":true,"balance":true,"guardian":true,"restoration":true},"rogue":{"outlaw":true,"subtlety":true,"assassination":true},"hunter":{"survival":true,"beastmastery":true,"marksmanship":true},"priest":{"holy":true,"shadow":true,"discipline":true},"shaman":{"elemental":true,"enhancement":true,"restoration":true},"paladin":{"holy":true,"protection":true,"retribution":true},"warlock":{"affliction":true,"demonology":true,"destruction":true},"warrior":{"arms":true,"fury":true,"protection":true},"deathknight":{"blood":true,"frost":true,"unholy":true},"demonhunter":{"havoc":true,"vengeance":true}}')
+Setting.create(name: 'recruiting', settings: r)
+
+s = JSON.parse('{"contents": "test post please ignore" }')
+Setting.create(name: 'frontpage', settings: s)

@@ -1,18 +1,19 @@
 <div class="hero-body" data-controller="playerapps">
       <div class="container has-text-centered">
-        <div class="column is-10 is-offset-1 apply-hero">
+      <div class="columns">
+        <div class="column is-10 apply-hero">
         <%= form_with url: '#', id: 'application_form' do |form| %>
             <div class="field">
               <div class="control">
                 <label class="label app-label">What is your character's name?</label>
-                <input class="input" type="text" name="player_name" id="player_name" required <% if !@player_name.nil? %> value=<%= @player_name %>  <% end %>/>
+                <input class="input" type="text" name="player_name" id="player_name" data-target="playerapps.name" data-action="change->playerapps#updateLinks" required/>
               </div>
             </div>
             <div class="field">
               <div class="control">
                 <label class="label app-label">Realm</label>
                 <div class="select">
-                  <select name="player_realm" id="player_realm"></select>
+                  <select name="player_realm" id="player_realm" data-target="playerapps.realm" data-action="change->playerapps#updateLinks"></select>
                 </div>
               </div>
             </div>
@@ -38,6 +39,18 @@
                 </div>
               </div>
             </div>
+            <div class="field">
+              <div class="control">
+                <label class="label app-label">Warcraft Logs: <h7 class="is-size-7 is-small app-label"> (click to edit)</h7></label>
+                <input class="input" type="text" name="player_warcraftlogs" id="player_warcraftlogs" data-target="playerapps.wowLogsLink" disabled/>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <label class="label app-label">WoW Progress:<h7 class="is-size-7 is-small app-label"> (click to edit)</h7></label> 
+                <input class="input" type="text" name="player_wowprogress" id="player_wowprogress" data-target="playerapps.wowProgLink" disabled/>
+              </div>
+            </div>
             <% @questions.each do |question| %>
             <div class="field">
               <div class="control">
@@ -61,8 +74,12 @@
             <br/>
             <div class="control">
               <button class="button is-info is-outlined" data-action="click->playerapps#submit">Submit</button>
-          </div>
+            </div>
          <% end %>
-</div>
+        </div>
+         <div class="column has-text-right apply-hero">
+           <%= render 'layouts/recruiting' %>
+          </div>
+          </div>
 </div>
 </div>
