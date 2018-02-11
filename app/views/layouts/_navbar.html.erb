@@ -1,5 +1,5 @@
     <div class="hero-head">
-      <nav class="navbar nav-font is-transparent" role="navigation" aria-label="dropdown navigation">
+      <nav class="navbar nav-font" role="navigation" aria-label="dropdown navigation">
         <div class="container">
           <div class="navbar-brand">
               <a class="navbar-item" href="/">
@@ -26,11 +26,10 @@
                   <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link"></a>
                       <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                           <%= link_to 'Frontpage', admin_frontpage_edit_path, class: 'navbar-item' %>
-                        </a>
+                       <%= link_to 'Edit Frontpage', admin_frontpage_edit_path, class: 'navbar-item' %>
+                       <%= link_to 'Update password', user_edit_path, class: 'navbar-item' %>
                         <hr class="navbar-divider">
-                          <%= link_to 'Logout', sign_out_path, class: 'navbar-item', method: 'delete' %>
+                       <%= link_to 'Logout', sign_out_path, class: 'navbar-item', method: 'delete' %>
                       </div>
                   </div>
             </div>

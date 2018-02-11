@@ -9,8 +9,9 @@ body {
 
 .hero.is-dark {
   /* stylelint-disable */
+  background: #f0f2f4;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("./darnbackground.jpg") no-repeat center center fixed;
+    url("./argusbackgroundpicture.jpg") no-repeat center center fixed;
   /* stylelint-enable */
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -18,13 +19,19 @@ body {
   background-size: cover;
 }
 
-.hero .subtitle {
-  padding: 3rem 0;
-  line-height: 1.5;
+.hero .navbar {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .apply-hero {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.gooey-hero {
+  /* stylelint-disable */
+  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+    url("./background.png") no-repeat center center fixed;
+  /* stylelint-enable */
 }
 
 .display-hero {
@@ -43,16 +50,12 @@ body {
   padding-left: 25px;
 }
 
-.hero.is-dark .title {
-  color: rgba(228, 212, 212, 0.904);
-}
-
 .nav-font {
   font-family: "Concert One", cursive;
 }
 
 .navbar-dropdown {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .app-label {

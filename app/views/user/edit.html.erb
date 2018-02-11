@@ -1,0 +1,19 @@
+<div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="column is-4 is-offset-4">
+        <div class="box">
+         <h3 class="is-3"> Update your password </h3>
+            <%= form_for(@user) do |f| %>
+              <div class="field">
+                <div class="control">
+                  <%= f.label :password, class: 'label app-label'  %>
+                  <%= f.password_field :password, class: 'input',  placeholder: 'password' %>
+                </div>
+              </div>
+              <%= f.submit 'Update', class: 'button is-block is-info is-large is-outlined' %>
+            <% end %>
+          </div>
+      
+        </div>
+      </div>
+</div>

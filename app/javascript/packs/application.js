@@ -18,9 +18,6 @@ import { definitionsFromContext } from "stimulus/webpack-helpers";
 import "bulma/bulma.sass";
 import "./application.css";
 
-import "./background.png";
-import "./headerlogo.png";
-
 import "../admin/admin";
 
 const application = Application.start();

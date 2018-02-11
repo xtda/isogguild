@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get '/app/:id', to: 'playerapp#show', as: 'playerapp'
   get '/applied', to: 'applied#index'
 
+  
+  get '/user/edit', to: 'user#edit', as: 'user_edit'
+  patch '/user', to: 'user#update', as: 'user'
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 

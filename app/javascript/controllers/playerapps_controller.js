@@ -336,6 +336,7 @@ export default class extends Controller {
     this.classSelect = document.getElementById("player_class");
     this.specSelect = document.getElementById("player_spec");
     this.appForm = document.getElementById("application_form");
+    this.gooeyDiv = document.getElementById("gooey-bg-display");
   }
   initialize() {
     this.realmSelect.length = 0;

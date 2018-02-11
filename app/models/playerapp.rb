@@ -39,7 +39,7 @@ class Playerapp < ApplicationRecord
   end
 
   def player_rank
-    max_score = ((100 * 11) + 101 + 1004 + 11)
+    max_score = ((100 * 11) + 101 + (989 + 15) + 11)
     increase = (max_score - player_rating).to_f
     percent = ((increase / max_score) * 100).to_f.round
     (100 - percent)
@@ -84,7 +84,7 @@ class Playerapp < ApplicationRecord
       "**Logs:** #{link_warcraftlogs}\n" \
       "**WoW Progress:** #{link_wowprog}\n" \
       "**Raider.io:** #{link_raiderio}\n" \
-      "Click here to view: http://dev.isogguild.com/app/#{id}?viewkey=#{viewkey}"
+      "Click here to view: https://www.isogguild.com/app/#{id}?viewkey=#{viewkey}"
     )
   end
 

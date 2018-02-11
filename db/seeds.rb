@@ -77,4 +77,21 @@ Appquestion.create(
   enabled: true,
   position: 7
 )
-#<Appquestion id: nil, name: nil, text: nil, field_type: nil, field_options: nil, enabled: true, position: 0, created_at: nil, updated_at: nil>
+
+User.create(
+  email: 'andrew@disvelop.net',
+  password: 'changeme',
+  access_level: 2
+)
+
+User.create(
+  email: 'ishyy@isogguild.com',
+  password: 'changeme',
+  access_level: 2
+)
+
+User.create(
+  email: 'pharma@isogguild.com',
+  password: 'changeme',
+  access_level: 1
+)
