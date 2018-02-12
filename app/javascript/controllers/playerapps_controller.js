@@ -298,6 +298,8 @@ function submitApplicationHandler(appForm, event, playerLinks) {
         defaultanswers.push(playerappanswers);
         break;
       case "player_links":
+      case "player_wowprogress":
+      case "player_warcraftlogs":
         break;
       default:
         i++;
