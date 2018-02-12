@@ -53,7 +53,7 @@ class Playerapp < ApplicationRecord
       "Recommendation: __Further information required__\n"
     when 70..100
       "\nPlayer score: #{rank} / 100 \n" \
-      "Recommendation: __Trail__\n"
+      "Recommendation: __Trial__\n"
     else
       "\nPlayer score: #{rank} / 100\n" \
       "Recommendation: __weak recruit pass__\n"
