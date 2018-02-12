@@ -3,7 +3,7 @@ class Playerapp < ApplicationRecord
   include Wowarmory
   include Warcraftlogs
 
-  has_many :playerappanswers
+  has_many :playerappanswers, dependent: :destroy
   accepts_nested_attributes_for :playerappanswers
 
   before_create :generate_viewkey

@@ -8,9 +8,10 @@ Rails.application.routes.draw do
 
   get '/app/:id', to: 'playerapp#show', as: 'playerapp'
   get '/applied', to: 'applied#index'
-  get '/admin/apps', to: 'playerapp#index',as: 'apps'
+  get '/admin/apps', to: 'playerapp#index', as: 'apps'
+  delete '/admin/app/:id', to: 'playerapp#destroy', as: 'playerapps_delete'
 
-  get '/user/edit', to: 'user#edit', as: 'user_edit'
+  get '/admin/password', to: 'user#edit', as: 'user_edit'
   patch '/user', to: 'user#update', as: 'user'
 
   get '/application/:id', to: 'remorseapp#show', as: 'playerapplication'

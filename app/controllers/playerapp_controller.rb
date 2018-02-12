@@ -1,6 +1,6 @@
 class PlayerappController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
-  before_action :require_login, only: [:index]
+  before_action :require_login, only: [:index, :delete]
 
   def index
     @applications = Playerapp.all.select(:id, :viewkey, :player_name,
@@ -27,6 +27,13 @@ class PlayerappController < ApplicationController
     else
       return render json: { status: 'ReCAPTCHA failed' }, status: 422
     end
+  end
+
+  def destroy
+    application = Playerapp.find(params[:id])
+    application.destroy!
+    flash[:success] = 'Application deleted'
+    redirect_to apps_path
   end
 
   private

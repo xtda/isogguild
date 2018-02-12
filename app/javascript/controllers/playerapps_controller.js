@@ -338,6 +338,11 @@ function submitApplicationHandler(appForm, event, playerLinks) {
       if (data.status === "success") {
         window.Turbolinks.visit("/applied");
       }
+      if (data.status === "ReCAPTCHA failed") {
+        document
+          .getElementById("recaptchaFailed")
+          .classList.remove("recaptcha_warning");
+      }
     });
 }
 
@@ -351,8 +356,6 @@ export default class extends Controller {
     this.classSelectOptions = document.getElementById("player_class").options;
     this.classSelect = document.getElementById("player_class");
     this.specSelect = document.getElementById("player_spec");
-    this.appForm = document.getElementById("application_form");
-    this.gooeyDiv = document.getElementById("gooey-bg-display");
     this.realmSelect.length = 0;
 
     fetch(this.realmApi)
@@ -370,12 +373,12 @@ export default class extends Controller {
     this.specSelect.length = 0;
     updateSpecList(this.classSelect.value, this.specSelect, this.playerLinks);
   }
-
   submit(event) {
     this.playerLinks = updatePlayerlinks(
       this.nameTarget.value,
       this.realmSelect
     );
+    this.appForm = document.getElementById("application_form");
     submitApplicationHandler(this.appForm, event, this.playerLinks);
   }
   updateLinks() {
@@ -387,5 +390,11 @@ export default class extends Controller {
       this.nameTarget.value,
       this.realmSelect
     );
+  }
+  enableWoWProgField() {
+    this.wowProgLinkTarget.readOnly = false;
+  }
+  enableWarcraftLogsfield() {
+    this.wowLogsLinkTarget.readOnly = false;
   }
 }

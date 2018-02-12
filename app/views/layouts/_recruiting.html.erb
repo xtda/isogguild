@@ -1,4 +1,8 @@
   <% last_class = '' %>
+  <% if !current_page?(apply_path) %>
+  <%= link_to 'Apply', apply_path, class: 'button is-info is-outlined'%>
+  </br><br/>
+  <% end %>
   <h5 class="is-size-5">Currently Recruiting: </h5>
   <div class="class_icons">
     <% @recruiting.each do |cclass ,v| %>
