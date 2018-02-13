@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   scope module: 'api' do
     namespace :v1 do
       get '/recruiting', to: 'recruiting#index'
+      get '/backgroundimage',to: 'backgroundimage#index'
       namespace :wow do
         get '/realms', to: 'realms#index'
       end

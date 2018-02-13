@@ -1,13 +1,18 @@
-<div class="hero-body" data-controller="playerapps">
-  <div class="container ">
-    <div class="column is-10 is-offset-1 display-hero">
+
+  <div class="sandbox">
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-white">
+          <div class="content">
             <% @applications.each do |application| %>
-            <%= link_to application.player_name, playerapplication_path(application, viewkey: application.viewkey)    %>
-             </br><br/>
-            Class: <%= application.player_class %> </br>
-            Spec: <%= application.player_mainspec %>
-            <hr/>
+              <%= link_to application.player_name, playerapplication_path(application, viewkey: application.viewkey)    %>
+              </br><br/>
+              Class: <%= application.player_class %> </br>
+              Spec: <%= application.player_mainspec %>
+              <hr/>
             <% end %>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
-</div>

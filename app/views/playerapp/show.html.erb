@@ -1,6 +1,9 @@
-  <div class="hero-body">
-        <div class="container ">
-          <div class="column is-10 is-offset-1 appdisplay-hero">
+
+  <div class="sandbox">
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-white">
+          <div class="content">
             <h1 class="is-size-1 has-text-weight-bold"><%= @application.player_name %> - <%= @application.player_realm  %></h1>
             <h5 class="is-size-6 has-text-weight-bold">Battle.net: <%= @application.player_bnettag %> </h5>
             <h5 class="is-size-6 has-text-weight-bold">Class: <%= @application.player_class %> </h5> 
@@ -16,6 +19,8 @@
               <br/>
               <br/>
             <% end %>
-          </div>    
           </div>
+        </article>
+      </div>
+    </div>
   </div>

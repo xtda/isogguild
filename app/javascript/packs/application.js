@@ -15,10 +15,10 @@ import Turbolinks from "turbolinks";
 import { Application } from "stimulus";
 import { definitionsFromContext } from "stimulus/webpack-helpers";
 
-import "bulma/bulma.sass";
-import "./application.css";
+import "../styles/theme.scss";
 
 import "../admin/admin";
+import "../images/images";
 
 const application = Application.start();
 const context = require.context("../controllers", true, /\.js$/);

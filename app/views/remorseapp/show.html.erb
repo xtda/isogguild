@@ -1,25 +1,28 @@
-<div class="hero-body" data-controller="playerapps">
-  <div class="container ">
-    <div class="column is-10 is-offset-1 appdisplay-hero">
-    <h2 class="is-size-2"><p>Archived Remorse Application:</p></h2>
 
-    <p><strong>Battle.net:</strong> <%= @application.player_battlenettag %>
-    <br>
+  <div class="sandbox">
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-white">
+          <div class="content">
+            <h2 class="is-size-2"><p>Archived Remorse Application:</p></h2>
 
-    <strong>Warcraft Logs:</strong>
-    <% @application.links_warcraftlogs.each do |link| %>
-      <br/>
-      <%= link_to link, link,target: "_blank",rel: "noopener noreferrer"%>
-    <% end %>
-    <br/>
-    <strong>WoW Progress:</strong>
-    <% @application.links_wowprogress.each do |link| %> <br/>
-    <%= link_to link, link,target: "_blank",rel: "noopener noreferrer" %>
-    <% end %>
-    </p>
-    <p><br/>
-    <strong>Name:</strong> <%= @application.player_name %>
-    <br>
+            <p><strong>Battle.net:</strong> <%= @application.player_battlenettag %>
+            <br>
+
+            <strong>Warcraft Logs:</strong>
+            <% @application.links_warcraftlogs.each do |link| %>
+              <br/>
+              <%= link_to link, link,target: "_blank",rel: "noopener noreferrer"%>
+            <% end %>
+            <br/>
+            <strong>WoW Progress:</strong>
+            <% @application.links_wowprogress.each do |link| %> <br/>
+              <%= link_to link, link,target: "_blank",rel: "noopener noreferrer" %>
+            <% end %>
+            </p>
+            <p><br/>
+            <strong>Name:</strong> <%= @application.player_name %>
+            <br>
     <strong>Class:</strong> <%= @application.player_class %>
     <br/><br/>
     </p>
@@ -53,6 +56,8 @@
     <strong>Anything else?:</strong><br>
     <%= @application.question_anythingelse %>
     </p><br><br>
+          </div>
+        </article>
       </div>
+    </div>
   </div>
-</div>

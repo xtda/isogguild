@@ -8,7 +8,8 @@ body {
 
 .hero.is-dark {
   /* stylelint-disable */
-  background: url("./argusbackgroundpicture.jpg") no-repeat center center fixed;
+  background: url("../images/argusbackgroundpicture.jpg") no-repeat center
+    center fixed;
 
   /* stylelint-enable */
   -webkit-background-size: cover;
@@ -27,7 +28,7 @@ body {
 
 .gooey-hero {
   /* stylelint-disable */
-  background: url("./background.png") no-repeat center top fixed;
+  background: url("../images/background.png") no-repeat center top fixed;
   /* stylelint-enable */
 }
 

@@ -11,6 +11,24 @@
   </head>
 
   <body class="has-navbar-fixed-top">
+    <%= render 'layouts/navbar' %>
+    <% if current_page?(root_url) || current_page?(applied_url) %>
+      <%= render 'layouts/header'%>
+    <% end %>
+    <% if current_page?(root_url) || current_page?(apply_path) %>
+      <%= render 'layouts/recruiting' %>
+    <% end %>
+    <section class="container">
+      <% if !flash.empty? %>
+        <%= render 'layouts/flash' %>
+      <% end %>
+      <% if current_page?(root_url)  %>
+        <%= render 'layouts/progression' %>
+      <% end %>
+      <%= yield %>
+      </section>
+
+  <% if false %>
     <section class="hero is-dark is-fullheight">
     <div class="hero gooey-hero is-fullheight" id="gooey-bg-display">
       <%= render 'layouts/navbar' %>
@@ -20,5 +38,6 @@
       <%= yield %>
       </div>
     </section>
+    <% end %>
   </body>
 </html>

@@ -1,86 +1,93 @@
-<div class="hero-body" data-controller="playerapps">
-      <div class="container has-text-left">
-      <div class="columns">
-        <div class="column is-10 apply-hero">
-        <%= form_with url: '#', id: 'application_form' do |form| %>
-            <div class="field">
-              <div class="control">
-                <label class="label app-label">What is your character's name?</label>
-                <input class="input" type="text" name="player_name" id="player_name" data-target="playerapps.name" data-action="input->playerapps#updateLinks" required/>
-              </div>
-            </div>
-            <div class="field">
-              <div class="control">
-                <label class="label app-label">Realm</label>
-                <div class="select">
-                  <select name="player_realm" id="player_realm" data-target="playerapps.realm" data-action="change->playerapps#updateLinks"e></select>
+  <div class="sandbox" data-controller="playerapps">
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+      <article class="tile is-child notification is-white">
+      <div class="content">
+            <%= form_with url: '#', id: 'application_form' do |form| %>
+                <div class="field">
+                    <div class="control">
+                        <label class="label app-label">What is your character's name?</label>
+                        <input class="input" type="text" name="player_name" id="player_name" data-target="playerapps.name" data-action="input->playerapps#updateLinks" required/>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="field">
-              <div class="control">
-                <label class="label app-label">What is your Battle.net tag?</label>
-                <input class="input" type="text" name="player_bnettag" id="player_bnettag"/>
-              </div>
-            </div>
-            <div class="field">
-              <div class="control">
-                <label class="label app-label">What class are you?</label>
-                <div class="select">
-                  <select name="player_class" id="player_class" data-action="change->playerapps#updatespecs" data-target="playerapps.playerspec"></select>
+                <div class="field">
+                    <div class="control">
+                        <label class="label app-label">Realm</label>
+                        <div class="select">
+                            <select name="player_realm" id="player_realm" data-target="playerapps.realm" data-action="change->playerapps#updateLinks" e></select>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="field">
-              <div class="control">
-                <label class="label app-label">What is your main specialisation?</label>
-                <div class="select">
-                  <select name="player_spec" id="player_spec"></select>
+                <div class="field">
+                    <div class="control">
+                        <label class="label app-label">What is your Battle.net tag?</label>
+                        <input class="input" type="text" name="player_bnettag" id="player_bnettag" />
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="field">
-              <div class="control">
-                <label class="label app-label">Warcraft Logs: <h7 class="is-size-7 is-small app-label"> (click to edit)</h7></label>
-                <input class="input" type="text" name="player_warcraftlogs" id="player_warcraftlogs" data-target="playerapps.wowLogsLink" data-action="click->playerapps#enableWarcraftLogsfield" readonly="readonly"/>
-              </div>
-            </div>
-            <div class="field">
-              <div class="control">
-                <label class="label app-label">WoW Progress:<h7 class="is-size-7 is-small app-label"> (click to edit)</h7></label> 
-                <input class="input" type="text" name="player_wowprogress" id="player_wowprogress" data-target="playerapps.wowProgLink" data-action="click->playerapps#enableWoWProgField" readonly="readonly"/>
-              </div>
-            </div>
-            <% @questions.each do |question| %>
-            <div class="field">
-              <div class="control">
-                <label class="label app-label"><%= question.text %> </label>
-                <% if question.field_type === 'select' %>
-                  <div class="select">
-                    <select name="<%= question.text %>" id="<%= question.text %>">></select>
-                  </div>
-                <% elsif question.field_type === 'textarea' %>
-                  <textarea class="textarea" name="<%= question.text %>" <%= question.field_options %>></textarea>
-                 <% elsif question.field_type === 'number' %>
-                  <input class="input" type=<%= question.field_type %> name="<%= question.text %>" id="<%= question.text %>" <%= question.field_options %> />
-                <% elsif%>
-                  <input class="input" type=<%= question.field_type %> name="<%= question.text %>" id="<%= question.text %>" <%= question.field_options %> />         
-                <% end %>
+                <div class="field">
+                    <div class="control">
+                        <label class="label app-label">What class are you?</label>
+                        <div class="select">
+                            <select name="player_class" id="player_class" data-action="change->playerapps#updatespecs" data-target="playerapps.playerspec"></select>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            <% end %>
-            <br/>
-            <%= recaptcha_tags(ajax: true)%>
-            <p class="help is-danger recaptcha_warning" id="recaptchaFailed">Recaptcha failed</p>
-            <br/>
-            <div class="control">
-              <button class="button is-info is-outlined" data-action="click->playerapps#submit">Submit</button>
-            </div>
-         <% end %>
+                <div class="field">
+                    <div class="control">
+                        <label class="label app-label">What is your main specialisation?</label>
+                        <div class="select">
+                            <select name="player_spec" id="player_spec"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="label app-label">Warcraft Logs: <h7 class="is-size-7 is-small app-label"> (click to edit)</h7></label>
+                        <input class="input" type="text" name="player_warcraftlogs" id="player_warcraftlogs" data-target="playerapps.wowLogsLink" data-action="click->playerapps#enableWarcraftLogsfield" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="label app-label">WoW Progress:<h7 class="is-size-7 is-small app-label"> (click to edit)</h7></label>
+                        <input class="input" type="text" name="player_wowprogress" id="player_wowprogress" data-target="playerapps.wowProgLink" data-action="click->playerapps#enableWoWProgField" readonly="readonly" />
+                    </div>
+                </div>
+                <% @questions.each do |question| %>
+                    <div class="field">
+                        <div class="control">
+                            <label class="label app-label"><%= question.text %> </label>
+                            <% if question.field_type === 'select' %>
+                                <div class="select">
+                                    <select name="<%= question.text %>" id="<%= question.text %>">></select>
+                                </div>
+                                <% elsif question.field_type === 'textarea' %>
+                                    <textarea class="textarea" name="<%= question.text %>" <%= question.field_options %>></textarea>
+                                    <% elsif question.field_type === 'number' %>
+                                        <input class="input" type=<%= question.field_type %> name="
+                                        <%= question.text %>" id="
+                                            <%= question.text %>"
+                                                <%= question.field_options %> />
+                                                    <% elsif%>
+                                                        <input class="input" type=<%=q uestion.field_type %> name="
+                                                        <%= question.text %>" id="
+                                                            <%= question.text %>"
+                                                                <%= question.field_options %> />
+                                                                    <% end %>
+                        </div>
+                    </div>
+                    <% end %>
+                        <br/>
+                        <%= recaptcha_tags(ajax: true)%>
+                            <p class="help is-danger recaptcha_warning" id="recaptchaFailed">Recaptcha failed</p>
+                            <br/>
+                            <div class="control">
+                                <button class="button is-info is-outlined" data-action="click->playerapps#submit">Submit</button>
+                            </div>
+                            <% end %>
+                            </divv>
+                            </article>
         </div>
-         <div class="column has-text-right apply-hero">
-           <%= render 'layouts/recruiting' %>
-          </div>
-          </div>
-</div>
+        </div>
+        </div>
+        </div>
 </div>

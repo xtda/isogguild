@@ -6,9 +6,9 @@ function fadeTarget() {
   const toggleClass = this.id.split("-")[0];
   const toggleSpec = this.id.split("-")[1];
   if (this.style.opacity === "1" || !this.style.opacity) {
-    this.style.opacity = 0.2;
+    this.style.opacity = 0.5;
     recruitingArray[toggleClass][toggleSpec] = false;
-  } else if (this.style.opacity === "0.2") {
+  } else if (this.style.opacity === "0.5") {
     this.style.opacity = 1;
     recruitingArray[toggleClass][toggleSpec] = true;
   }

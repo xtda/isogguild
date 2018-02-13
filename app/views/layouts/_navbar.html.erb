@@ -1,9 +1,57 @@
+    
+    <div class="hero-head">
+      <nav class="navbar is-fixed-top is-light nav-font">
+        <div class="container">
+          <div class="navbar-brand">
+            <%= link_to '<ISOG>', root_path, class: 'navbar-item is-size-4'%>
+            <span class="navbar-burger burger" data-target="navbarMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+                <%= link_to 'Apply', apply_path, class: 'navbar-item' %>
+              <a class="navbar-item" href="https://www.warcraftlogs.com/guilds/253726" target="_blank" rel="noopener noreferrer">
+                Guild logs
+              </a>
+              <a class="navbar-item" href="https://www.wowprogress.com/guild/us/frostmourne/Icky+Sticky+Ooey+Gooey" target="_blank" rel="noopener noreferrer">
+                WoW Progress
+              </a>
+              <a class="navbar-item" href="https://raider.io/guilds/us/frostmourne/Icky%20Sticky%20Ooey%20Gooey" target="_blank" rel="noopener noreferrer">
+                raider.io
+              </a>
+              <% if signed_in? %>
+                  <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                    </a>
+                      <div class="navbar-dropdown">
+                      <%= link_to 'All applications', apps_path, class: 'navbar-item' %>
+                      <%= link_to 'Update recruiting', admin_recruitment_path, class: 'navbar-item' %>
+                      <%= link_to 'Edit Frontpage', admin_frontpage_edit_path, class: 'navbar-item' %>
+                      <hr class="navbar-divider">
+                        <%= link_to 'Remorse Applications', applications_path, class: 'navbar-item' %>
+                       <hr class="navbar-divider">
+                       <%= link_to 'Update password', user_edit_path, class: 'navbar-item' %>
+                        <hr class="navbar-divider">
+                       <%= link_to 'Logout', sign_out_path, class: 'navbar-item', method: 'delete' %>
+                      </div>
+                  </div>
+                  <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+<% if false %> 
     <div class="hero-head">
       <nav class="navbar nav-font" role="navigation" aria-label="dropdown navigation">
         <div class="container">
           <div class="navbar-brand">
-              <a class="navbar-item" href="/">
-              <img src="<%= asset_pack_path 'packs/headerlogo.png' %>" />
+            <a class="navbar-item" href="/">
+              <img src="<%= asset_pack_path 'images/headerlogo.png' %>" />
             </a>
             <span class="navbar-burger burger" data-target="navbarMenu">
               <span></span>
@@ -44,3 +92,5 @@
         </div>
       </nav>
     </div>
+    
+    <% end %>

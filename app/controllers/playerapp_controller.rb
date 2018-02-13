@@ -15,6 +15,7 @@ class PlayerappController < ApplicationController
   end
 
   def new
+    
     @recruiting = Setting.find_by(name: 'recruiting').settings  
     @questions = Appquestion.where(enabled: true).order('position asc')
     @application = Playerapp.new

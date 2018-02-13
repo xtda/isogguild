@@ -1,12 +1,8 @@
 
-<div class="hero-body">
-      <div class="container">
-        <div class="column is-12">
-<% flash.each do |message_type, message| %>
-  <%= content_tag(:div, message, class: "notification is-#{message_type}") do %>
-    <%= message %>
-    <% end %>
-<% end %>
-</div>
-</div>
-</div>
+    <p class="has-text-centered">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "notification is-#{message_type}") do %>
+          <%= message %>
+        <% end %>
+      <% end %>
+    </p>

@@ -38,7 +38,7 @@ class Playerapp < ApplicationRecord
     'not found'
   end
 
-  def player_rank
+  def player_rank(score)
     max_score = ((100 * 11) + 101 + (989 + 15) + 11)
     increase = (max_score - player_rating).to_f
     percent = ((increase / max_score) * 100).to_f.round
@@ -46,17 +46,22 @@ class Playerapp < ApplicationRecord
   end
 
   def player_suggestion
-    rank = player_rank
+    player_score = player_rating
+    rank = player_rank(player_score)
+
     case rank
+    when 40..49
+      "\nPlayer score: #{player_score} / #{((100 * 11) + 101 + (989 + 15) + 11)}\n" \
+      "Rating: __Weak applicant__\n"
     when 50..69
-      "\nPlayer score: #{rank} / 100\n" \
-      "Recommendation: __Further information required__\n"
+      "\nPlayer score: #{player_score} / #{((100 * 11) + 101 + (989 + 15) + 11)}\n" \
+      "Rating: __Good applicant__\n"
     when 70..100
-      "\nPlayer score: #{rank} / 100 \n" \
-      "Recommendation: __Trial__\n"
+      "\nPlayer score: #{player_score} / #{((100 * 11) + 101 + (989 + 15) + 11)} \n" \
+      "Rating: __Strong applicant__\n"
     else
-      "\nPlayer score: #{rank} / 100\n" \
-      "Recommendation: __weak recruit pass__\n"
+      "\nPlayer score: #{player_score} / #{((100 * 11) + 101 + (989 + 15) + 11)} \n" \
+      "Rating: __Bad applicant__\n"
     end
   end
 
@@ -81,10 +86,10 @@ class Playerapp < ApplicationRecord
       "**Battle.net:** #{player_bnettag}\n" \
       "**Class:** #{player_class}\n" \
       "**Spec:** #{player_spec}\n\n" \
-      "**Recruit information:** #{player_suggestion}\n\n" \
+      "**Rating information:** #{player_suggestion}\n\n" \
       "**Logs:** #{link_warcraftlogs}\n" \
       "**WoW Progress:** #{link_wowprog}\n" \
-      "**Raider.io:** #{link_raiderio}\n" \
+      "**Raider.io:** #{link_raiderio}\n\n" \
       "Click here to view: https://www.isogguild.com/app/#{id}?viewkey=#{viewkey}"
     )
   end
