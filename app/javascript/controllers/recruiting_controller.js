@@ -5,12 +5,31 @@ let recruitingArray = {};
 function fadeTarget() {
   const toggleClass = this.id.split("-")[0];
   const toggleSpec = this.id.split("-")[1];
+  const toggleCheckBox = document.getElementById(
+    `${toggleClass}-${toggleSpec}-priority`
+  );
   if (this.style.opacity === "1" || !this.style.opacity) {
     this.style.opacity = 0.5;
-    recruitingArray[toggleClass][toggleSpec] = false;
+    recruitingArray[toggleClass][toggleSpec] = "no";
+    toggleCheckBox.checked = false;
+    toggleCheckBox.disabled = true;
   } else if (this.style.opacity === "0.5") {
     this.style.opacity = 1;
-    recruitingArray[toggleClass][toggleSpec] = true;
+    toggleCheckBox.disabled = false;
+    recruitingArray[toggleClass][toggleSpec] = "low";
+  }
+}
+
+function togglehighPriority() {
+  const toggleClass = this.id.split("-")[0];
+  const toggleSpec = this.id.split("-")[1];
+  const toggleCheckBox = document.getElementById(
+    `${toggleClass}-${toggleSpec}-priority`
+  );
+  if (toggleCheckBox.checked) {
+    recruitingArray[toggleClass][toggleSpec] = "high";
+  } else {
+    recruitingArray[toggleClass][toggleSpec] = "low";
   }
 }
 
@@ -41,6 +60,7 @@ function submitUpdate(csrfToken) {
 export default class extends Controller {
   initialize() {
     this.specClass = document.getElementsByClassName("spec_icon");
+    this.specPriority = document.getElementsByClassName("spec_icon_priority");
     this.csrfToken = document.head.querySelector(
       'meta[name="csrf-token"'
     ).content;
@@ -48,6 +68,9 @@ export default class extends Controller {
     recruitingArray = JSON.parse(recruitingArray);
     Array.from(this.specClass).forEach(element => {
       element.addEventListener("click", fadeTarget);
+    });
+    Array.from(this.specPriority).forEach(element => {
+      element.addEventListener("change", togglehighPriority);
     });
   }
   submit() {

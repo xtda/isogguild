@@ -1,3 +1,8 @@
+<% 
+  @currently_recruiting = false 
+  @currently_recruiting_low_displayed = false
+  @currently_recruiting_high_displayed = false
+%>
 
 <section class="container has-text-centered">
   <div class="columns features is-centered is-desktop">
@@ -6,24 +11,35 @@
       <br/>
         <h5 class="title is-size-5"> Currently recruiting </h5>
           <div class="class_icons">
-
             <% @recruiting.each do |cclass ,v| %>
               <% v.each do |spec, vv| %>
-                <% if vv %>
-                  <img  src="<%= asset_pack_path "images/class_icons/#{cclass}/#{spec}.jpg" %>"/>
+                <% if vv == "high" %>
+                  <% if !@currently_recruiting_high_displayed %>
+                    <h6 class="is-size-6 has-text-weight-bold"> High priority </h6>
+                    <% @currently_recruiting_high_displayed = true %>
+                  <% end %>
+                  <img src="<%= asset_pack_path "images/class_icons/#{cclass}/#{spec}.jpg" %>" class="<%= "#{vv}" %>"/>
+                   <% @currently_recruiting = true %>
+                <% end %>
+              <% end %>   
+            <% end %>
+            <br/>
+            <% @recruiting.each do |cclass ,v| %>
+              <% v.each do |spec, vv| %>
+                <% if vv == "low" %>
+                    <% if !@currently_recruiting_low_displayed %>
+                    <h6 class="is-size-6 has-text-weight-bold"> Low priority </h6>
+                    <% @currently_recruiting_low_displayed = true %>
+                  <% end %>
+                  <img src="<%= asset_pack_path "images/class_icons/#{cclass}/#{spec}.jpg" %>" class="<%= "#{vv}" %>"/>
                   <% @currently_recruiting = true%>
                 <% end %>
               <% end %>
             <% end %>
           </div>
           <% if !@currently_recruiting %>
-          We are not actively recruiting any classes but feel free to submit your application anyway
+            We are not actively recruiting any classes but feel free to submit your application anyway
           <br/>
-          <% end %>
-          <br/>
-          <% if current_page?(root_url) %>
-            <%= link_to 'Apply', apply_path, class: 'button is-link '%>
-            <br/>
           <% end %>
           <br/>
         </div>

@@ -13,7 +13,8 @@
                     <%= cclass.capitalize %>
                     <br/>
                   <% end %>
-                  <img src="<%= asset_pack_path "images/class_icons/#{cclass}/#{spec}.jpg" %> " id="<%= "#{cclass}-#{spec}" %>" class="spec_icon" <% if !vv %> style="opacity: 0.5" <% end %> /> 
+                    <img src="<%= asset_pack_path "images/class_icons/#{cclass}/#{spec}.jpg" %> " id="<%= "#{cclass}-#{spec}" %>" class="spec_icon" <% if vv == "no" %> style="opacity: 0.5" <% end %> /> 
+                    <input type="checkbox" id="<%= "#{cclass}-#{spec}-priority" %>" class="spec_icon_priority" <% if vv == "high" %> checked <% end %>  <% if vv == "no" %> disabled <% end %> > </input>
                   <% if last_class != cclass %>
                   <% last_class = cclass %>
                 <% end %>

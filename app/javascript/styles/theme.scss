@@ -90,7 +90,19 @@ html, body {
 .class_icons img {
   width: 42px;
   height: 42px;
-  border-radius: 25px;
+  border-radius: 20px;
+}
+
+.low {
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+}
+
+.high {
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
 }
 
 .recaptcha_warning {
@@ -131,6 +143,7 @@ progress:before {
   left:0;
   right:0;
 }
+
 .progress:not(:last-child) {
   margin-bottom: 0rem;
 }
