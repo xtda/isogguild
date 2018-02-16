@@ -5,7 +5,8 @@ class PlayerappController < ApplicationController
   def index
     @applications = Playerapp.all.select(:id, :viewkey, :player_name,
                                          :player_class, :player_spec,
-                                         :player_links, :player_bnettag).order(id: "asc")
+                                         :player_links, :player_bnettag)
+                             .page(params[:page]).per(5).order(id: 'asc')
   end
 
   def show

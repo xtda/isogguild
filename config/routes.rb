@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get '/application/:id', to: 'remorseapp#show', as: 'playerapplication'
   get '/admin/applications', to: 'remorseapp#index', as: 'applications'
   
+  get '/roster', to: 'roster#index',as: 'roster'
+  get '/roster/:id', to: 'roster#show', as: 'member'
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
