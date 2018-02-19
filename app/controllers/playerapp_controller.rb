@@ -11,13 +11,14 @@ class PlayerappController < ApplicationController
 
   def show
     return redirect_to root_url unless params.key?(:viewkey)
-    @application = Playerapp.where(id: params[:id], viewkey: params[:viewkey]).includes(:playerappanswers).first
+    @application = Playerapp.where(id: params[:id], viewkey: params[:viewkey])
+                            .includes(:playerappanswers)
+                            .order('playerappanswers.position asc').first
     redirect_to root_url unless @application
   end
 
   def new
-    
-    @recruiting = Setting.find_by(name: 'recruiting').settings  
+    @recruiting = Setting.find_by(name: 'recruiting').settings
     @questions = Appquestion.where(enabled: true).order('position asc')
     @application = Playerapp.new
   end
